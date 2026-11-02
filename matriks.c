@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 
 void matriks(int a[4][4], int b[4], int hasil[4]){
@@ -13,13 +14,21 @@ void matriks(int a[4][4], int b[4], int hasil[4]){
 int main(){
     int a[4][4], b[4], hasil[4] = {0};
 
+    srand(time(NULL));
     printf("Matriks A (4 x 4)\n");
     for(int i = 0; i < 4; i++){
-        scanf("%d %d %d %d", &a[i][0], &a[i][1], &a[i][2], &a[i][3]);
+        for(int j = 0; j < 4; j++){
+            a[i][j] = rand() % 10;
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
     }
 
     printf("Matriks B(4 x 1)\n");
-    scanf("%d %d %d %d", &b[0], &b[1], &b[2], &b[3]);
+    for(int i = 0; i < 4; i++){
+        b[i] = rand() % 10;
+        printf("%d\n", b[i]);
+    }
 
     matriks(a, b, hasil);
 
